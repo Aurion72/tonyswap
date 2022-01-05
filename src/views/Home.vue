@@ -15,6 +15,7 @@
 
     <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
       <selectDataFeed />
+      <selectNetwork />
 
       <div class="bg-white py-8 px-4 mt-5 shadow sm:rounded-lg sm:px-10">
         <div class="space-y-6">
@@ -122,6 +123,7 @@ import useCoinPrices from "../composables/useCoinPrices.js";
 import useCoin from "../composables/useCoin.js";
 import InputCurrency from "../components/InputCurrency.vue";
 import SelectDataFeed from "../components/SelectDataFeed.vue";
+import SelectNetwork from "../components/SelectNetwork.vue";
 import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue";
 import { ChevronDownIcon } from "@heroicons/vue/solid";
 import { useStore } from "vuex";

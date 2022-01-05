@@ -1,10 +1,10 @@
 <template>
-    <Listbox v-model="feedSelected">
+    <Listbox v-model="networkSelected">
       <div class="relative mt-1">
         <ListboxButton
           class="relative cursor-pointer w-full py-4 pl-5 pr-10 text-left bg-white rounded-lg shadow  focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm"
         >
-          <span class="flex truncate"> Technologie : <img class="object-scale-down rounded-full ml-auto h-5 w-5 mr-1" :src="$getImageUrl(feedSelected.logo)" /> {{ feedSelected.name }} </span>
+          <span class="flex truncate"> Réseau : <img class="object-scale-down rounded-full ml-auto h-5 w-5 mr-1" :src="$getImageUrl(networkSelected.logo)" /> {{ networkSelected.name }} </span>
           <span
             class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none"
           >
@@ -22,15 +22,15 @@
           >
             <ListboxOption
               v-slot="{ active, selected }"
-              v-for="feed in feedsList"
-              :key="feed.name"
-              :value="feed"
-              :disabled="feed.unavailable"
+              v-for="network in networksList"
+              :key="network.name"
+              :value="network"
+              :disabled="network.unavailable"
               as="template"
             >
               <li
                 :class="[
-                  active ? 'text-amber-900 bg-amber-100' : 'text-gray-900', {'text-gray-400 cursor-not-allowed': feed.unavailable},
+                  active ? 'text-amber-900 bg-amber-100' : 'text-gray-900', {'text-gray-400 cursor-not-allowed': network.unavailable},
                   'cursor-pointer select-none relative py-2 pl-10 pr-4',
                 ]"
               >
@@ -40,8 +40,8 @@
                     'flex truncate',
                   ]"
                   >
-                  <img class="object-scale-down rounded-full h-5 w-5 mr-1" :src="$getImageUrl(feed.logo)" />
-                  {{ feed.name }}
+                  <img class="object-scale-down rounded-full h-5 w-5 mr-1" :src="$getImageUrl(network.logo)" />
+                  {{ network.name }}
                   
                   </span
                 >
@@ -71,15 +71,16 @@ import {
 } from '@headlessui/vue'
 import { CheckIcon, SelectorIcon } from '@heroicons/vue/solid'
 
-const feedsList = [
-    { name: 'ChainLink Data Feeds', logo:'chainlink_blue.png'  },
-    { name: 'The Graph (en développement)', logo:'the-graph-logo.png', unavailable:true  },
-    { name: 'UniSwap SDK (en développement)', logo:'uniswap_logo.png', unavailable:true },
+const networksList = [
+    { name: 'Ethereum', logo:'ethereum_logo.png' },
+    { name: 'Polygon (En développement)', logo:'polygon-matic-logo.png', unavailable:true },
+    { name: 'Optimism (En développement)', logo:'optimism.png', unavailable:true },
+    { name: 'Arbitrum (En développement)', logo:'Arbitrum.svg', unavailable:true },
 ]
 
 inject['images']
 
-const feedSelected = ref(feedsList[0])
+const networkSelected = ref(networksList[0])
 
 
 </script>
