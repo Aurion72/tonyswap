@@ -7,7 +7,7 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "@vueuse/core": "^7.4.3",
+    "@vueuse/core": "^7.5.5",
     "axios": "^0.24.0",
     "bignumber.js": "^9.0.2",
     "date-fns": "^2.28.0",
